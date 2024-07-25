@@ -75,7 +75,7 @@ df = spark.read.options(header='True', inferSchema='True', delimiter=',') \
 df.printSchema()
 
 
-df.writeTo(tablename)\
+df.writeTo(f"{database}.{tablename}")\
      .tableProperty("write.format.default", "parquet")\
      .using("iceberg")\
      .append()
