@@ -45,7 +45,7 @@ from __future__ import print_function
 import os
 import sys
 from pyspark.sql import SparkSession
-
+import argparse
 #import configparser
 #config = configparser.ConfigParser()
 #config.read('/app/mount/parameters.conf')
@@ -53,11 +53,17 @@ from pyspark.sql import SparkSession
 #s3BucketName=config.get("general","s3BucketName")
 #tablename=config.get("general","tablename")
 
+parser = argparse.ArgumentParser()
+parser.add_argument("input", type=str, help="Input file name")
+args = parser.parse_args()
+filename = {args.input}
+
+
 data_lake_name= "s3a://go01-demo/"
 s3BucketName  = "s3a://go01-demo/user/jprosser"
 tablename     = "alzheimers_dataset"
 database      = 'LEQEMBI'
-print(f"Processing file {s3BucketName}/alzheimers_disease_data_2.csv")
+print(f"Processing file {s3BucketName}/{filename}")
 
 spark = SparkSession\
     .builder\
