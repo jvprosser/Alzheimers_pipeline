@@ -57,6 +57,7 @@ data_lake_name= "s3a://go01-demo/"
 s3BucketName  = "s3a://go01-demo/user/jprosser"
 tablename     = "alzheimers_dataset"
 database      = 'LEQEMBI'
+print(f"Processing file {s3BucketName}/alzheimers_disease_data_2.csv")
 
 spark = SparkSession\
     .builder\
