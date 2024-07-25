@@ -74,19 +74,18 @@ spark.sql(f"SELECT * FROM {database}.{tablename}.history").show()
 spark.sql(f"SELECT * FROM {database}.{tablename}.snapshots").show()
 
 ```
-<!---
+
 
 8. CREATE  A TAG for ML training and retain it forever
 ```
 spark.sql(f" select * from {database}.{tablename}.refs").show() 
 
-
-ml_tag='ML-Train-0716202'
+ml_tag='ML-Train-07302024-1'
 spark.sql(f" ALTER TABLE {database}.{tablename} CREATE TAG `{ml_tag}` AS OF VERSION 1020021702408491525")
 spark.sql(f" select * from {database}.{tablename}.refs").show()
 
 ```
--->
+
 <!---
 
 8. Enable Write-Audit-Publish
@@ -195,13 +194,14 @@ Talk about this being an iceberg table and that we have our first snapshot!
 
 1. Go this repo https://github.com/jvprosser/Alzheimers_pipeline
 2. click on CDE_pyspark_sql_iceberg.py and show that the code is just like what we ran in the session but there's some session setup and the data file is different.
-4. Create a resource using the gut URL for this repo
-5. Create a file-based Spark3 job by uploading CDE_pyspark_sql_iceberg.py, creating a resource called Alzheimers-Resource and save+run it. Call the job Alzheimers_Dataset_Transform
-6. Go to the jobs page and describe it.
-7. Go to job runs and describe the page
-8. Go to resources, look at was created for the job. Talk about resources.
-9. go back to job runs and look at logs, SparkUI, etc
-
+4. Create a Repository called Alzheimers_project using the git URL for this repo and branch = 'main'
+5. Create a job using the repository from the previous step.  Select CDE_pyspark_sql_iceberg.py
+6. Run the job.
+7. Go to the jobs page and describe it.
+8. Go to job runs and describe the page
+9. Go to resources, look at was created for the job. Talk about resources.
+10. go back to job runs and look at logs, SparkUI, etc
+11. Go back the the session and look at the checkpoints. Add another TAG
 > Now that our job is working let's start to operationalize it with Airflow!
 
 ## Airflow
