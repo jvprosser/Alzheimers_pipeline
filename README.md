@@ -192,12 +192,15 @@ Talk about this being an iceberg table and that we have our first snapshot!
 >Now that we have our code working, let's put it in a job and run it that way!
 
 ## Job
-1. Show that the code for CDE_pyspark_sql_iceberg.py is just like what we ran in the session but there's some session setup and the data file is different.
-2. Create a file-based Spark3 job by uploading CDE_pyspark_sql_iceberg.py, creating a resource called BIOGEN-Resource and save+run it. Call the job Alzheimers_Dataset_Transform
-3. Go to the jobs page and describe it.
-4. Go to job runs and describe the page
-5. Go to resources, look at was created for the job. Talk about resources.
-6. go back to job runs and look at logs, SparkUI, etc
+
+1. Go this repo https://github.com/jvprosser/Alzheimers_pipeline
+2. click on CDE_pyspark_sql_iceberg.py and show that the code is just like what we ran in the session but there's some session setup and the data file is different.
+4. Create a resource using the gut URL for this repo
+5. Create a file-based Spark3 job by uploading CDE_pyspark_sql_iceberg.py, creating a resource called Alzheimers-Resource and save+run it. Call the job Alzheimers_Dataset_Transform
+6. Go to the jobs page and describe it.
+7. Go to job runs and describe the page
+8. Go to resources, look at was created for the job. Talk about resources.
+9. go back to job runs and look at logs, SparkUI, etc
 
 > Now that our job is working let's start to operationalize it with Airflow!
 
