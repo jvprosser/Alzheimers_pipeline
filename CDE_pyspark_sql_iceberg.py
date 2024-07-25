@@ -69,7 +69,7 @@ spark = SparkSession\
 
 
 df = spark.read.options(header='True', inferSchema='True', delimiter=',') \
-  .csv(f"{s3BucketName}/alzheimers_disease_data_1.csv")
+  .csv(f"{s3BucketName}/alzheimers_disease_data_2.csv")
 
 df.printSchema()
 
